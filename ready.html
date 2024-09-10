@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0d0d0d;
+            font-family: 'Arial', sans-serif;
+            background: pink; /* Base background color */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            height: 400px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .character {
+            width: 250px;
+            height: auto;
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .text-content {
+            font-size: 36px;
+            font-weight: bold;
+            color: lightblue;
+            animation: heartbeat 1.5s infinite, textGlow 2s infinite;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            margin: 10px 0;
+        }
+
+        .text-content:first-of-type {
+            font-size: 30px;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            20% {
+                transform: scale(1.1);
+            }
+            40% {
+                transform: scale(1);
+            }
+            60% {
+                transform: scale(1.1);
+            }
+            80% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 10px lightblue, 0 0 20px lightblue, 0 0 30px lightblue, 0 0 40px #00aaff, 0 0 50px #00aaff, 0 0 60px #00aaff, 0 0 70px #00aaff;
+                color: lightblue;
+            }
+            100% {
+                text-shadow: 0 0 10px lightblue, 0 0 20px lightblue, 0 0 30px lightblue, 0 0 40px #00aaff, 0 0 50px #00aaff, 0 0 60px #00aaff, 0 0 70px #00aaff;
+                color: lightblue;
+            }
+        }
+
+        .heart {
+            position: absolute;
+            width: 200px; /* Increased size */
+            height: 200px; /* Increased size */
+            background: transparent;
+            border: 10px solid lightblue; /* Border to create the heart shape */
+            clip-path: path('M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z');
+            animation: heartGlow 2s infinite;
+        }
+
+        @keyframes heartGlow {
+            0% {
+                box-shadow: 0 0 20px lightblue, 0 0 30px lightblue, 0 0 40px lightblue;
+            }
+            100% {
+                box-shadow: 0 0 20px lightblue, 0 0 30px lightblue, 0 0 40px lightblue;
+            }
+        }
+
+        /* Spread hearts around the background */
+        .heart:nth-child(1) { top: 5%; left: 5%; }
+        .heart:nth-child(2) { top: 10%; left: 80%; }
+        .heart:nth-child(3) { top: 30%; left: 10%; }
+        .heart:nth-child(4) { top: 50%; left: 85%; }
+        .heart:nth-child(5) { top: 70%; left: 15%; }
+        .heart:nth-child(6) { top: 85%; left: 70%; }
+        .heart:nth-child(7) { top: 50%; left: 50%; }
+        .heart:nth-child(8) { top: 20%; left: 60%; }
+        .heart:nth-child(9) { top: 80%; left: 30%; }
+        .heart:nth-child(10) { top: 30%; left: 75%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left image -->
+        <img src="https://cdn.pixabay.com/photo/2023/03/14/21/53/sculpture-7853242_1280.jpg" alt="Custom Character" class="character">
+        
+        <!-- Text container -->
+        <div class="text-container">
+            <!-- Top text -->
+            <p class="text-content">Do you even love me y chesmk?</p>
+            
+            <!-- Bottom text -->
+            <p class="text-content">Batman is mad at you y mibuna</p>
+        </div>
+        
+        <!-- Right image -->
+        <img src="https://cdn.pixabay.com/photo/2023/03/14/21/53/sculpture-7853242_1280.jpg" alt="Custom Character" class="character">
+    </div>
+    <!-- Background hearts -->
+    <svg class="heart" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <svg class="heart" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+</body>
+</html>
+
+
